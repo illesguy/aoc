@@ -6,11 +6,14 @@ current_dir = os.path.dirname(os.path.abspath(__file__))
 input_dir = f'{current_dir}/../../inputs'
 
 
-def get_input_for_day(year, day, parse_input=lambda i: i):
+def get_input_for_day(year, day, parse_input=lambda i: i, separator=None):
     download_input_if_not_exists(year, day)
     print(f'Reading input for {year} day {day}')
     with open(f'{input_dir}/{year}/day{day}.txt', 'r') as fl:
-        return [parse_input(l.strip()) for l in fl.readlines()]
+        if separator is not None:
+            return [parse_input(l.strip()) for l in fl.read().split(separator)]
+        else:
+            return [parse_input(l.strip()) for l in fl.readlines()]
 
 
 def download_input_if_not_exists(year, day):

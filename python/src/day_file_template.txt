@@ -1,0 +1,19 @@
+from inputs import get_input_for_day
+
+
+def parse_input(line):
+    return str(line)
+
+
+def part1(inp):
+    pass
+
+
+def part2(inp):
+    pass
+
+
+inp = get_input_for_day({year}, {day}, parse_input)
+print("Input lines read:", len(inp))
+print("part 1:", part1(inp))
+print("part 2:", part2(inp))
